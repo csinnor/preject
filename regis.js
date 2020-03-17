@@ -12,7 +12,7 @@ var config = {
   firebase.initializeApp(config);
   
   //Reference for form collection(3)
-  let formMessage = firebase.database().ref('register');
+  let formMessage = firebase.database().ref('Customer');
   
   //listen for submit event//(1)
   document
@@ -26,12 +26,13 @@ var config = {
     let name = document.querySelector('#name').value;
     let email = document.querySelector('#email').value;
     let password = document.querySelector('#password').value;
-    let bio = document.querySelector('#bio').value;
-    let job = document.querySelector('#job').value;
-    let interest = document.querySelector('#interest').value;
+    let contact = document.querySelector('#contact').value;
+    let address = document.querySelector('#address').value;
+//    let job = document.querySelector('#job').value;
+    let interest = document.querySelector('#gender').value;
   
     //send message values
-    sendMessage(name, email, password, bio, job, interest);
+    sendMessage(name, email, password, contact, address, gender);
   
     //Show Alert Message(5)
     document.querySelector('.alert').style.display = 'block';
@@ -47,14 +48,15 @@ var config = {
   
   //Send Message to Firebase(4)
   
-  function sendMessage(name, email, password, bio, job, interest) {
+  function sendMessage(name, email, password, contact, address, gender) {
     let newFormMessage = formMessage.push();
     newFormMessage.set({
       name: name,
       email: email,
       password: password,
-      bio: bio,
-      job: job,
-      Interest: interest
+      contact:contact,
+      address: address,
+//      job: job,
+      Gender: gender
     });
   }

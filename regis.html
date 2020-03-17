@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="regis.css" />
   <title>Registration Form</title>
 </head>
 
@@ -22,18 +22,21 @@
       <label class="" for="email">Email:</label>
       <input type="email" name="email" value="" id="email" required />
 
-      <label for="password">password:</label>
+      <label for="password">Password:</label>
       <input type="password" name="password" value="" id="password" required />
+
+      <label for="contact">Phone Number:</label>
+      <input type="contact" name="contact" value="" id="contact" required />
     </fieldset>
 
     <fieldset>
       <!-- section 2 -->
       <legend><span class="section">2</span>Profile</legend>
 
-      <label class="" for="bio">Bio:</label>
-      <textarea name="bio" id="bio" required></textarea>
+      <label class="" for="address">Address:</label>
+      <textarea name="address" id="address" required></textarea>
 
-      <label for="job">Job Role:</label>
+<!--      <label for="job">Job Role:</label>
       <select name="job" id="job" required>
         <optgroup label="Web">
           <option value="front_end_developer" id="frontend">Frontend Developer</option>
@@ -46,13 +49,12 @@
           <option value="phonegap" id="phonegap">PhoneGap</option>
         </optgroup>
       </select>
-      <br /><br />
-      <label>Interest:</label>
+      <br /><br /> -->
+      <label>Gender:</label>
 
-      <select id="interest" required>
-        <option value="development">Development</option>
-        <option value="design">Design</option>
-        <option value="business">Business</option>
+      <select id="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
       </select>
 
 
