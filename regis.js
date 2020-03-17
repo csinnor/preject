@@ -1,11 +1,13 @@
 // Initialize Firebase(2)
 var config = {
-    apiKey: 'YOUR-API-KEY',
-    authDomain: 'YOUR-AUTH-DOMAIN',
-    databaseURL: 'YOUR-DATABASE-URL',
-    projectId: 'YOUR-PROJECT-ID',
-    storageBucket: 'YOUR-STORE-BUCKET',
-    messagingSenderId: 'YOUR-MESSAGING-SENDER-ID'
+    apiKey: "AIzaSyCWgNUg6MGWrnQ0cpDe1oEC-jiIcuHsXiI",
+    authDomain: "job-distribution-system-1be63.firebaseapp.com",
+    databaseURL: "https://job-distribution-system-1be63.firebaseio.com",
+    projectId: "job-distribution-system-1be63",
+    storageBucket: "job-distribution-system-1be63.appspot.com",
+    messagingSenderId: "650324397430",
+    appId: "1:650324397430:web:2293c79dedb39021a6fe57",
+    measurementId: "G-PXCD86M6Q4"
   };
   firebase.initializeApp(config);
   
