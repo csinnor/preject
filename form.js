@@ -1,3 +1,18 @@
+// Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyCWgNUg6MGWrnQ0cpDe1oEC-jiIcuHsXiI",
+    authDomain: "job-distribution-system-1be63.firebaseapp.com",
+    databaseURL: "https://job-distribution-system-1be63.firebaseio.com",
+    projectId: "job-distribution-system-1be63",
+    storageBucket: "job-distribution-system-1be63.appspot.com",
+    messagingSenderId: "650324397430",
+    appId: "1:650324397430:web:2293c79dedb39021a6fe57",
+    measurementId: "G-PXCD86M6Q4"
+        };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
 const db=firebase.firestore();
 //const table=document.querySelector('#tbresult');
 const form=document.querySelector('#appointment-form');
@@ -17,10 +32,13 @@ form.addEventListener('submit',(e)=>{
         Password:form.password.value,
         Phonenumber:form.phone_number.value,
         Gender:form.course_type.value,
-        Province:form.phone_number.value,
-        District:form.phone_number.value,
-        City:form.phone_number.value,
-        PostalCode:form.phone_number.value
+        HouseNo:form.house_number.value,
+        Village:form.village.value,
+        VillageNo:form.village_no.value,
+        SubDistrict:form.sub_district.value,
+        District:form.district.value,
+        Province:form.province.value,
+        PostalCode:form.postalcode.value
     });
     form.firstname.value='';
 });
