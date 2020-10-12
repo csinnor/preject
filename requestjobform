@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+	<link rel="stylesheet" type="text/css" href="Jobrequest/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/vendor/noui/nouislider.min.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/css/util.css">
+	<link rel="stylesheet" type="text/css" href="Jobrequest/css/main.css"> 
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta charset="utf-8">
+	<style>
+	  #map {
+		height: 100%;
+	  }
+	  html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	  }
+	</style>
+
+	
+</head>
+
+<body>
+  <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+          <div class="navbar-brand">
+            <a href="Homecustomer.html"><h1> Job Request</h1></a> 
+          </div>
+        </div>
+        <div class="navbar-collapse collapse">
+          <div class="menu">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation"><a href="Home3.html">Home</a></li>
+              <li role="presentation"><a href="Homecustomer.html">Customer Profile </a></li>
+              <li role="presentation"><a href="Homecustomer-joprequst.html"class="active">Job Request</a></li>
+              <li role="presentation"><a href="Homecustomer-pendingjob.html">Pending job</a></li>
+              <li role="presentation"><a href="Homecustomer-jobhistory.html">Job History</a></li>
+              <li role="presentation"><a href="Suggestion.html">Suggestion</a></li>
+
+            </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Job Request Form<h4>สามารถกรอกข้อมูลได้ทั้งภาษาไทยและภาษาอังกฤษ*</h4>
+				</span>
+				
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Name">
+					<span class="label-input100">Contact Person *</span>
+					<input class="input100" type="text" name="name" placeholder="Enter Your Name" id="ContactPerson">
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100 validate-input bg1"data-validate="Please Type Phone Number">
+					<span class="label-input100">Phone Number *</span>
+					<input class="input100" type="text" name="phone" placeholder="Enter  Phone Number" id="PhoneNumber">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Needed Services *</span>
+					<div>
+						<select class="js-select2" name="priority" id="Priority">
+							<option>Maintenance</option>
+							<option>Installation</option>
+							<option>Problem Fixing</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Date">
+					<span class="label-input100">Available Date *</span>
+					<input type="Date" input class="input100" type="Date" name="name" placeholder="Day/Month/Year" id="AvailableDate">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Available Time *</span>
+					<div>
+						<select class="js-select2" name="periodtime" id="AvailableTime">
+							<option>Morning(9:00-12:00)</option>
+							<option>Afternoon(13:00-17:00)</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				<div class="wrap-input100 bg1 rs1-wrap-input100 validate-input bg1"data-validate="Please Type Text & Number">
+					<span class="label-input100">Job ID *</span>
+					<input class="input100" type="text" name="phone" placeholder="Generate Your JobID(Up To You!)" id="JobID">
+				</div>
+
+				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Job Detail">
+					<span class="label-input100">Job Detail *</span>
+					<textarea class="input100" name="message" placeholder="Your Message Here..." id="JobDetail"></textarea>
+				</div>
+
+				<div class="map" >
+					<span class="label-input100">Location *</span>
+					<div id="map"></div>
+    <script>
+		//callbackจะทำการเรียกฟังก์ชันข้างล่างนี้อัตโนมัติเลย
+      var map;
+      var position={lat:13.847860, lng:100.604274};
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: position,
+          zoom: 9
+		});		
+     //   var map = new google.maps.Map(document.getElementById('map_canvas'),myOptions);
+        var marker = new google.maps.Marker({
+            position: position,
+			map: map,
+			draggalbe: true
+		});
+        //บรรทัด140เป็นการใส่ออปชั่นให้marker ก็คือจะแสดงหน้าต่างสี่เหลี่ยมบนmarkerแสดงรายละเอียดlat lng
+        var infowindow = new google.maps.InfoWindow({
+			map:map, //ตัวแปรmap ประกาศไว้แล้วในบรรทัด133 ก็คือเป็นการรีเทรินค่ากลับไป
+			content:"Job Location",
+		});		
+        google.maps.event.addListener(map,'click',function(event){
+			infowindow.open(map,marker);
+			infowindow.setContent("LatLng = " + event.latLng); //แสดงพิกัด
+			marker.setPosition(event.latLng); //markerจะเลื่อนตามที่คลิ๊ก
+			infowindow.setPosition(event.latLng);
+
+			$("#lat").val(event.latLng.lat());
+			$("#lng").val(event.latLng.lng());
+		});
+      }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuCSws91EGc_
+    0EbAATXBJP4hv-VKBH6r8&callback=initMap"
+    async defer></script>
+
+				</div>
+
+            
+                <div class="form-group">
+                    <label for="lat">Latitude</label>
+                    <input type="text" class="form-control" id="lat" placeholder="Latitude"> </input>
+                </div>
+                <div class="form-group">
+                    <label for="lng">Longitude</label>
+                    <input type="text" class="form-control" id="lng" placeholder="Longitude"> </input>
+
+				<div class="container-contact100-form-btn">
+					<button type="button" id="saveButton" onclick="storeJobInfo();" class="contact100-form-btn" >
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="Jobrequest/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Jobrequest/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Jobrequest/vendor/bootstrap/js/popper.js"></script>
+	<script src="Jobrequest/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Jobrequest/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCWgNUg6MGWrnQ0cpDe1oEC-jiIcuHsXiI",
+    authDomain: "job-distribution-system-1be63.firebaseapp.com",
+    databaseURL: "https://job-distribution-system-1be63.firebaseio.com",
+    projectId: "job-distribution-system-1be63",
+    storageBucket: "job-distribution-system-1be63.appspot.com",
+    messagingSenderId: "650324397430",
+    appId: "1:650324397430:web:2293c79dedb39021a6fe57",
+    measurementId: "G-PXCD86M6Q4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+//  firebase.analytics();
+
+Date.prototype.today = function () { 
+    return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+}
+
+// For the time now
+Date.prototype.timeNow = function () {
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
+var newDate = new Date();
+var date = newDate.today();  
+var time = newDate.timeNow();  
+//  var form=document.querySelector('#appointment-form')
+ 
+function storeJobInfo() {
+  var db = firebase.firestore();
+  var inputContactPerson = document.getElementById("ContactPerson").value;
+  var inputPhoneNumber = document.getElementById("PhoneNumber").value;
+  var inputPriority = document.getElementById("Priority").value;
+  var inputAvailableDate = document.getElementById("AvailableDate").value;
+  var inputAvailableTime = document.getElementById("AvailableTime").value;
+  var inputJobID = document.getElementById("JobID").value;
+  var inputJobDetail = document.getElementById("JobDetail").value;
+  var JobLatitude = document.getElementById("lat").value;
+  var JobLongitude = document.getElementById("lng").value;
+
+
+//var inputSubmittedDate = document.getElementById("JobLocation").value;  
+    console.log(inputContactPerson);
+    console.log(inputPhoneNumber);
+    console.log(inputPriority);
+    console.log(inputAvailableDate);
+    console.log(inputAvailableTime);
+    console.log(inputJobID);
+    console.log(inputJobDetail);
+    console.log(JobLatitude);
+    console.log(JobLongitude);
+    console.log(date);
+    console.log(time);    
+
+     db.collection("JobInfo").doc(inputJobID).set({
+         ContactPerson: inputContactPerson,
+         PhoneNumber: inputPhoneNumber,
+         Priority: inputPriority,
+         AvailableDate: inputAvailableDate,
+         AvailableTime: inputAvailableTime,
+         JobID: inputJobID,
+         JobDatail: inputJobDetail,
+         JobLocation: {JobLatitude,JobLongitude}, 
+		 SubmittedDate: date,
+         SubmittedTime: time
+     })
+     .then(function() {
+         console.log("Doc successful");
+     })
+     .catch(function(error) {
+        console.error("Error writing doc", error);
+     });
+}
+
+</script>
+
+<!--===============================================================================================-->
+	<script src="Jobrequest/vendor/daterangepicker/moment.min.js"></script>
+	<script src="Jobrequest/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="Jobrequest/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="Jobrequest/vendor/noui/nouislider.min.js"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+
+	<script src="Jobrequest/js/main.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+
+</body>
+
+</html>
